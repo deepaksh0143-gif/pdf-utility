@@ -1,0 +1,12 @@
+node_modules
+.next
+.tools
+.freebuff
+.docs_extract
+.git
+.env.local
+.env*.local
+*.log
+tests
+README.md
+DEPLOY.md

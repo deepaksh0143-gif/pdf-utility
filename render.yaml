@@ -1,0 +1,32 @@
+# Render Blueprint — deploys the app as a persistent Node web service on the
+# free plan. Requires the repo to be on GitHub/GitLab and connected in Render.
+# Docs: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: pdf-utility
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm ci --no-audit --no-fund && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      # Node 20 (matches engines and the tested runtime).
+      - key: NODE_VERSION
+        value: "20.18.3"
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+      # Product limits: PRD defaults (override here if the instance's RAM
+      # requires smaller caps; 50 MB x 20 files cannot all be in memory at
+      # once on a 512 MB free instance).
+      - key: MAX_FILE_SIZE_MB
+        sync: false
+      - key: MAX_FILES_PER_SESSION
+        sync: false
+      - key: MAX_TOTAL_PAGES
+        sync: false
+      - key: MAX_CONCURRENT_JOBS
+        sync: false

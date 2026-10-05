@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/*
+ * Design system tokens — modern, minimal, premium (AGENTS.md §23).
+ * A restrained palette: one primary hue, neutral grays, semantic states.
+ */
+@theme {
+  --color-primary-50: #eef4ff;
+  --color-primary-100: #dce7fd;
+  --color-primary-200: #c0d4fc;
+  --color-primary-300: #94b8fa;
+  --color-primary-400: #6192f5;
+  --color-primary-500: #3d6cef;
+  --color-primary-600: #254ceb;
+  --color-primary-700: #1d3ad8;
+  --color-primary-800: #1e31ae;
+  --color-primary-900: #1e2f8a;
+
+  --color-surface: #ffffff;
+  --color-surface-muted: #f6f8fb;
+  --color-border: #e4e9f0;
+  --color-ink-900: #0f172a;
+  --color-ink-700: #334155;
+  --color-ink-500: #64748b;
+  --color-ink-300: #cbd5e1;
+
+  --color-success-600: #16a34a;
+  --color-success-100: #dcfce7;
+  --color-danger-600: #dc2626;
+  --color-danger-100: #fee2e2;
+  --color-warning-600: #d97706;
+  --color-warning-100: #fef3c7;
+
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Visible focus states for keyboard users (AGENTS.md §20). */
+:focus-visible {
+  outline: 2px solid var(--color-primary-600);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-surface-muted);
+  color: var(--color-ink-900);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Screen-reader-only utility. */
+.sr-only-focusable:not(:focus):not(:focus-within) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

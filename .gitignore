@@ -1,0 +1,39 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+next-env.d.ts
+
+# production
+build/
+dist/
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.tsbuildinfo
+
+# env files
+.env
+.env.local
+.env*.local
+
+# local portable tooling (never commit)
+.tools/
+
+# temporary extraction of project documents
+.docs_extract/
+
+# Freebuff workspace artifacts (preview logs, build logs, run docs)
+.freebuff/
+
+# Office lock files
+~$*
+
+# OS
+Thumbs.db
